@@ -1,0 +1,2 @@
+# aws-secrets-manager-with-python-mysqlconnection
+this repository contains the code that can be used to create a db connection in mysql aws RDS with python , and i have saved the mysql credentails in aws secrets manager and the python code to retrieve the credentials and add them to our application code is also there (NOTE: the secrets manager credentails should be saved in a config.py file and that file should be called in our mail .py file)
