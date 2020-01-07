@@ -5,8 +5,8 @@ import mysql.connector
 import json
 
 def get_secret():
-    secret_name = "mysqlpython"
-    region_name = "us-east-1"
+    secret_name = "name"
+    region_name = "us-east-76"
 
     # Create a Secrets Manager client
     session = boto3.session.Session()
@@ -56,23 +56,3 @@ def get_secret():
     s=json.dumps(secret)
     print(s)
 
-try:
-    # s = get_secret()
-    # print(s)
-    connection = mysql.connector.connect(username="karthik",host="database-1.cgeh7ghqkigm.us-east-1.rds.amazonaws.com",password="LcKmhfa{=,TE2S>%kZuqd~.ZhU<Cp9Mh",database="pythonCon")
-    print(connection)
-    mySql_insert_query = """INSERT INTO details (billamount,serviceQuality,numofpeople)
-                               VALUES
-                               ('56565', 'jjj', '558') """
-    cursor = connection.cursor()
-    cursor.execute(mySql_insert_query)
-    connection.commit()
-    print(cursor.rowcount, "Record inserted successfully into details table")
-    cursor.close()
-
-except mysql.connector.Error as error:
-    print("Failed to insert record into details table {}".format(error))
-finally:
-    if (connection.is_connected()):
-        connection.close()
-        print("MySQL connection is closed")
